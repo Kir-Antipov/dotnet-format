@@ -33,13 +33,30 @@
     "*",
     "!dist/*"
   ],
+  "jest": {
+    "preset": "ts-jest",
+    "testEnvironment": "node",
+    "roots": [
+      "<rootDir>/test"
+    ],
+    "testMatch": [
+      "<rootDir>/test/**/*.test.ts"
+    ],
+    "setupFiles": [
+      "<rootDir>/test/jest.setup.ts"
+    ]
+  },
   "scripts": {
     "build": "webpack --mode production",
-    "devBuild": "webpack --mode development"
+    "devBuild": "webpack --mode development",
+    "test": "jest",
+    "test:watch": "jest --watch"
   },
   "devDependencies": {
+    "@types/jest": "^29.5.13",
     "clean-webpack-plugin": "^3.0.0",
     "terser-webpack-plugin": "^5.0.3",
+    "ts-jest": "^29.2.5",
     "ts-loader": "^8.0.11",
     "typescript": "^4.1.2",
     "webpack": "^5.8.0",
